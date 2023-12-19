@@ -1,12 +1,1 @@
-let shareIcon = document.querySelector('#share-icon')
-let shareContent = document.querySelector('.share-content')
-shareIcon && shareIcon.addEventListener("click", openOrHideShareContent, false)
-
-function openOrHideShareContent() {
-  let isHidden = shareContent.classList.contains('hidden')
-  if (isHidden) {
-    shareContent.classList.remove('hidden')
-  } else {
-    shareContent.classList.add('hidden')
-  }
-}
+let shareIcon=document.querySelector("#share-icon"),shareContent=document.querySelector(".share-content");function openOrHideShareContent(){shareContent.classList.contains("hidden")?shareContent.classList.remove("hidden"):shareContent.classList.add("hidden")}shareIcon&&shareIcon.addEventListener("click",openOrHideShareContent,!1);
