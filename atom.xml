@@ -6,7 +6,7 @@
   <link href="http://cdt3211.github.io/atom.xml" rel="self"/>
   
   <link href="http://cdt3211.github.io/"/>
-  <updated>2023-12-20T13:47:49.927Z</updated>
+  <updated>2023-12-22T16:37:31.483Z</updated>
   <id>http://cdt3211.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计组期末</title>
+    <link href="http://cdt3211.github.io/2023/12/22/%E8%AE%A1%E7%BB%84%E6%9C%9F%E6%9C%AB/"/>
+    <id>http://cdt3211.github.io/2023/12/22/%E8%AE%A1%E7%BB%84%E6%9C%9F%E6%9C%AB/</id>
+    <published>2023-12-22T12:20:41.000Z</published>
+    <updated>2023-12-22T16:37:31.483Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><h2 id="加减指令执行后标志位的变化"><a href="#加减指令执行后标志位的变化" class="headerlink" title="加减指令执行后标志位的变化"></a>加减指令执行后标志位的变化</h2><h2 id="过程调用的执行步骤、指针变化、入口参数（综合考）"><a href="#过程调用的执行步骤、指针变化、入口参数（综合考）" class="headerlink" title="过程调用的执行步骤、指针变化、入口参数（综合考）"></a>过程调用的执行步骤、指针变化、<strong>入口参数（综合考）</strong></h2><h2 id="数组访问"><a href="#数组访问" class="headerlink" title="数组访问"></a>数组访问</h2><h1 id="第五章-程序的执行"><a href="#第五章-程序的执行" class="headerlink" title="第五章 程序的执行"></a>第五章 程序的执行</h1><h2 id="流水线技术：计算非流水线和流水线下指令执行的时间、吞吐率（应用）"><a href="#流水线技术：计算非流水线和流水线下指令执行的时间、吞吐率（应用）" class="headerlink" title="流水线技术：计算非流水线和流水线下指令执行的时间、吞吐率（应用）"></a>流水线技术：计算非流水线和流水线下指令执行的时间、吞吐率（应用）</h2><p><img src="https://abnerblog-1317606226.cos.ap-nanjing.myqcloud.com/202312222148777.png" alt="串行方式"></p><p><img src="https://abnerblog-1317606226.cos.ap-nanjing.myqcloud.com/202312222148116.png" alt="流水线方式"></p><p>五段流水线：</p><ol><li>取指令（IF）：根据PC的值从存储器取出指令</li><li>指令译码（ID）：产生指令执行所需的控制信号</li><li>取操作数（OF）：读取存储器操作数或寄存器操作数</li><li>执行（EX）：对操作数完成指定操作</li><li>写回（WB）：将操作结果写入存储器或寄存器</li></ol><h3 id="单周期数据通路"><a href="#单周期数据通路" class="headerlink" title="单周期数据通路"></a>单周期数据通路</h3><p><img src="https://abnerblog-1317606226.cos.ap-nanjing.myqcloud.com/202312222152494.png" alt="单周期"></p><h3 id="流水线数据通路"><a href="#流水线数据通路" class="headerlink" title="流水线数据通路"></a>流水线数据通路</h3><p><img src="https://abnerblog-1317606226.cos.ap-nanjing.myqcloud.com/202312222154777.png" alt="流水线"></p><p>1ns=1000ps</p><p>1GIPS=1*10^9</p><p>流水线方式不一定缩短一条指令的执行。</p><p>流水线划分的越均匀越好。在比较均匀的情况下可以大大提高吞吐率。</p><p>指令流水段个数以最复杂指令所用的功能段个数为准；流水段的长度以最复杂功能段的操作时间为准。</p><h2 id="什么样的指令集有利于流水线执行？"><a href="#什么样的指令集有利于流水线执行？" class="headerlink" title="什么样的指令集有利于流水线执行？"></a>什么样的指令集有利于流水线执行？</h2><ul><li>长度尽量一致，有利于简化取指令和指令译码操作<ul><li>MIPS指令32位，下址计算方便：PC+4</li><li>X86指令从1字节到17字节不等，使取指部件及其复杂</li></ul></li><li>格式少，且源寄存器位置相同，有利于在指令未知时就可取操作数<ul><li>MIPS指令的rs和rt位置一定，在指令译码时就可读取rs和rt的值</li><li>若位置随指令不同而不同，则需先确定指令类型才能取寄存器编号</li></ul></li><li>load/Store指令才能访问存储器，有利于减少操作数，规整流水线</li><li>内存中“对齐”存放，有利于减少访存次数和流水线的规整</li></ul><p><strong>总之，规整、简单和一致等特性有利于指令的流水线规划</strong></p><h2 id="精简指令集、复杂指令集的特点"><a href="#精简指令集、复杂指令集的特点" class="headerlink" title="精简指令集、复杂指令集的特点"></a>精简指令集、复杂指令集的特点</h2><h3 id="精简指令集计算机（CISC）："><a href="#精简指令集计算机（CISC）：" class="headerlink" title="精简指令集计算机（CISC）："></a>精简指令集计算机（CISC）：</h3><ol><li>指令系统复杂</li><li>指令周期长</li><li>各种指令都能访问存储器</li><li>采用微程序控制</li><li>难以进行编译优化来生成高效目标代码</li></ol><p>缺陷：日趋庞大的指令系统不但使计算机的研制周期变长，而且难以保证设计的正确性，难以调试和维护，并且因指令操作复杂而增加机器周期，从而降低了系统性能</p><h3 id="复杂指令计算机（RISC）："><a href="#复杂指令计算机（RISC）：" class="headerlink" title="复杂指令计算机（RISC）："></a>复杂指令计算机（RISC）：</h3><ol><li>指令少</li><li>简化的指令系统</li><li>以RR方式工作</li><li>采用指令流水线技术，大部分指令在一个时钟周期内完成</li><li>采用大量通用寄存器，以减少访存次数</li><li>采用硬件连线控制器，不用或少用微程序控制</li><li>实现细节对机器级程序可见</li></ol><h2 id="吞吐率-流水线的性能指标"><a href="#吞吐率-流水线的性能指标" class="headerlink" title="吞吐率 流水线的性能指标"></a>吞吐率 流水线的性能指标</h2><p><img src="https://abnerblog-1317606226.cos.ap-nanjing.myqcloud.com/202312222221775.png" alt="吞吐率"></p><h1 id="第六章-层次结构存储系统"><a href="#第六章-层次结构存储系统" class="headerlink" title="第六章 层次结构存储系统"></a>第六章 层次结构存储系统</h1><h2 id="存储器分类"><a href="#存储器分类" class="headerlink" title="存储器分类"></a>存储器分类</h2><h3 id="按存取方式分类"><a href="#按存取方式分类" class="headerlink" title="按存取方式分类"></a>按存取方式分类</h3><ul><li>随机存取存储器（RAM）<ul><li>特点：按地址访问存储单元，每个单元读写时间一样。如：内存</li></ul></li><li>顺序存取存储器（SAM）<ul><li>特点：信息按顺序存放和读出，其存取时间取决于信息存放位置。如：磁带</li></ul></li><li>直接存取存储器（DAM）<ul><li>直接定位到读写数据块，在读写数据块时按顺序进行。如磁盘</li></ul></li><li>相联存储器（AM、CAM）<ul><li>按内容检索到存储位置进行读写。如快表</li></ul></li></ul><h3 id="按断电后信息的可保存性分类"><a href="#按断电后信息的可保存性分类" class="headerlink" title="按断电后信息的可保存性分类"></a>按断电后信息的可保存性分类</h3><ul><li>非易失性存储器<ul><li>信息可一直保留，不需电源维持。如ROM、U盘、磁表面存储器、光存储器等</li></ul></li><li>易失性存储器<ul><li>电源关闭时信息自动丢失。如RAM、Cache等</li></ul></li></ul><h2 id="基本概念区分"><a href="#基本概念区分" class="headerlink" title="基本概念区分"></a>基本概念区分</h2><ul><li>记忆单元（存储基元/存储元/位元/Cell）<ul><li>具有两种稳态的能够表示二进制数码0和1的物理器件</li></ul></li><li>存储单元（编址单元/超元）<ul><li>具有相同地址的位构成一个存储单元，也称为编址单元</li></ul></li><li>存储体（存储矩阵/存储阵列）<ul><li>所有存储单元构成一个存储体</li></ul></li><li>编址方式<ul><li>字节编址、按字编址</li></ul></li><li>存储器地址寄存器（MAR）<ul><li>用于存放主存单元地址的寄存器</li></ul></li><li>存储器数据寄存器（MDR）<ul><li>用于存放主存单元中的数据的寄存器</li></ul></li></ul><h2 id="层次化结构"><a href="#层次化结构" class="headerlink" title="层次化结构"></a>层次化结构</h2><p><img src="https://abnerblog-1317606226.cos.ap-nanjing.myqcloud.com/202312222316788.png" alt="层次化结构"></p><h2 id="引脚复用技术"><a href="#引脚复用技术" class="headerlink" title="引脚复用技术"></a>引脚复用技术</h2><ul><li>减少芯片的地址引脚数，从而减小体积</li><li>在行选通信号RAS和列选通信号CAS的控制下，分时传送行、列地址</li></ul><h2 id="主存的扩展（应用）"><a href="#主存的扩展（应用）" class="headerlink" title="主存的扩展（应用）"></a>主存的扩展（应用）</h2><ol><li>位扩展<ul><li>用若干片位数较少的存储器芯片构成给定字长的内存条时，需要进行位扩展</li><li>字数不变，位数扩展</li></ul></li><li>字扩展<ul><li>位数不变、扩充容量</li></ul></li><li>字、位同时扩展<ul><li>当芯片在容量和位数都不满足存储器要求的情况下，需要对字和位同时扩展</li></ul></li></ol><h2 id="磁盘的相关概念"><a href="#磁盘的相关概念" class="headerlink" title="磁盘的相关概念"></a>磁盘的相关概念</h2><p>磁头：每个盘片的两面各有一个磁头，因此磁头号就等于盘面号</p><p>磁区：每个磁道被分为若干个磁区，以扇区为单位进行磁盘读写</p><p>磁道：磁头和盘片相对运动形成的圆构成一个磁道</p><p>柱面：多个盘片上相同的磁道形成一个柱面</p><h2 id="外存平均响应时间-存取时间（应用）"><a href="#外存平均响应时间-存取时间（应用）" class="headerlink" title="外存平均响应时间/存取时间（应用）"></a>外存平均响应时间/存取时间（应用）</h2><p>响应时间=排队延迟+控制器时间+寻道时间+旋转等待时间+数据传输时间</p><p>存取时间=寻道时间+旋转等待时间+数据传输时间</p><p>平均存取时间=平均寻道时间+平均旋转等待时间+数据传输时间</p><h2 id="程序访问局部性原理会判别"><a href="#程序访问局部性原理会判别" class="headerlink" title="程序访问局部性原理会判别"></a>程序访问局部性原理会判别</h2><p><img src="https://abnerblog-1317606226.cos.ap-nanjing.myqcloud.com/202312222353389.png" alt="程序访问局部性"></p><h2 id="命中率"><a href="#命中率" class="headerlink" title="命中率"></a>命中率</h2><p>命中（Hit）：CPU访问单元所在块在Cache中</p><p>命中率（Hit Rate）：在Cache中命中的概率，命中次数与总访问次数之比</p><p>命中时间（Hit Time）：命中时，CPU在Cache直接存取信息，所用的时间开销</p><p>不命中（Miss）：COU访问单元所在块不在Cache中</p><p>缺失率：1-（Hit Rate）</p><h2 id="Cache映射方式（应用）"><a href="#Cache映射方式（应用）" class="headerlink" title="Cache映射方式（应用）"></a>Cache映射方式（应用）</h2><ul><li>直接（Direct）：每个主存块映射到Cache的固定行</li><li>全相联（Full Associate）：每个主存块映射到Cache的任一行</li><li>组相联（Set Associate）：每个主存块映射到Cache固定组中任一行</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;第三章&quot;&gt;&lt;a href=&quot;#第三章&quot; class=&quot;headerlink&quot; title=&quot;第三章&quot;&gt;&lt;/a&gt;第三章&lt;/h1&gt;&lt;h2 id=&quot;加减指令执行后标志位的变化&quot;&gt;&lt;a href=&quot;#加减指令执行后标志位的变化&quot; class=&quot;headerlink&quot; ti</summary>
+      
+    
+    
+    
+    <category term="学习笔记" scheme="http://cdt3211.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机组成原理" scheme="http://cdt3211.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>马原重点</title>
